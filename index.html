@@ -7,156 +7,158 @@
 
 <style>
 :root {
-    --bg: #f4f4f4;
-    --text: #111;
-    --card: rgba(255,255,255,0.15);
-    --nav: #000;
-    --accent: #0071e3;
+    --bg:#f4f4f4;
+    --text:#111;
+    --glass:rgba(255,255,255,0.15);
+    --nav:#000;
 }
 
 body.dark {
-    --bg: #111;
-    --text: #f4f4f4;
+    --bg:#111;
+    --text:#f4f4f4;
 }
 
-/* GLOBAL */
 * {
-    box-sizing: border-box;
-    font-family: -apple-system, BlinkMacSystemFont,
-        "SF Pro Display","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    box-sizing:border-box;
+    font-family:-apple-system,BlinkMacSystemFont,
+    "SF Pro Display","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
 }
 
 body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--text);
-    transition: 0.4s;
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    transition:.4s;
 }
 
 /* NAV */
 nav {
-    background: var(--nav);
-    color: white;
-    padding: 15px 25px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    background:var(--nav);
+    color:white;
+    padding:15px 25px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 }
 
 nav button {
-    margin-left: 6px;
-    padding: 8px 16px;
-    border-radius: 20px;
-    border: none;
-    cursor: pointer;
+    margin-left:6px;
+    padding:8px 16px;
+    border-radius:20px;
+    border:none;
+    cursor:pointer;
 }
 
 /* SECTIONS */
-section {
-    padding: 80px 25px;
-}
-
+section { padding:80px 25px; }
 .hidden { display:none; }
 
-/* APPLE SCROLL ANIMATION */
+/* SCROLL ANIMATIONS */
 .reveal {
-    opacity: 0;
-    transform: translateY(40px) scale(0.96);
-    transition: 0.9s ease;
+    opacity:0;
+    transform:translateY(40px) scale(.96);
+    transition:.9s ease;
 }
 .reveal.active {
-    opacity: 1;
-    transform: translateY(0) scale(1);
+    opacity:1;
+    transform:none;
 }
 
 /* HOME */
 .home {
-    background: linear-gradient(to right,#000,#222);
-    color: white;
-    text-align: center;
+    background:linear-gradient(to right,#000,#222);
+    color:white;
+    text-align:center;
 }
 
-/* 3D SLIDER */
+/* SLIDER */
 .slider {
-    position: relative;
-    width: 100%;
-    max-width: 420px;
-    margin: 50px auto 0;
-    perspective: 1200px;
-    height: 420px;
+    position:relative;
+    max-width:420px;
+    height:430px;
+    margin:50px auto;
+    perspective:1200px;
 }
 
 .slide {
-    position: absolute;
-    inset: 0;
-    padding: 30px;
-    border-radius: 28px;
-    background: rgba(255,255,255,0.08);
-    backdrop-filter: blur(25px);
-    box-shadow: 0 40px 80px rgba(0,0,0,0.5);
-    transform: rotateY(60deg) scale(0.8);
-    opacity: 0;
-    transition: 0.8s ease;
+    position:absolute;
+    inset:0;
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(25px);
+    border-radius:28px;
+    padding:30px;
+    box-shadow:0 40px 80px rgba(0,0,0,.5);
+    opacity:0;
+    transform:rotateY(60deg) scale(.8);
+    transition:.8s;
 }
 
 .slide.active {
-    transform: rotateY(0deg) scale(1);
-    opacity: 1;
+    opacity:1;
+    transform:none;
 }
 
 .slide img {
-    width: 160px;
-    margin-bottom: 20px;
+    width:160px;
+    margin-bottom:20px;
 }
-
-.slide h2 { margin: 10px 0; }
 
 /* SHOP */
 .products {
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
-    gap: 30px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:30px;
 }
 
 .product {
-    background: var(--card);
-    backdrop-filter: blur(20px);
-    border-radius: 24px;
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-    transition: transform 0.4s;
+    background:var(--glass);
+    backdrop-filter:blur(20px);
+    border-radius:24px;
+    padding:20px;
+    text-align:center;
+    box-shadow:0 20px 40px rgba(0,0,0,.15);
+    transition:.4s;
 }
 
-.product:hover {
-    transform: translateY(-10px);
-}
+.product:hover { transform:translateY(-10px); }
 
 .product img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    border-radius: 18px;
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    border-radius:18px;
 }
 
 /* CART */
 .cart-item {
-    background: rgba(255,255,255,0.15);
-    backdrop-filter: blur(20px);
-    padding: 15px;
-    margin-bottom: 15px;
-    border-radius: 14px;
-    display: flex;
-    justify-content: space-between;
+    background:var(--glass);
+    backdrop-filter:blur(20px);
+    padding:15px;
+    border-radius:14px;
+    margin-bottom:15px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 }
 
 .checkout-btn {
-    background: black;
-    color: white;
-    padding: 14px 26px;
-    border-radius: 30px;
-    border: none;
-    cursor: pointer;
+    background:black;
+    color:white;
+    padding:14px 26px;
+    border-radius:30px;
+    border:none;
+    cursor:pointer;
+}
+
+/* ABOUT */
+.about-box {
+    max-width:800px;
+    margin:auto;
+    background:var(--glass);
+    backdrop-filter:blur(20px);
+    padding:30px;
+    border-radius:24px;
+    line-height:1.7;
 }
 </style>
 </head>
@@ -169,6 +171,7 @@ section {
         <button onclick="showPage('home')">Home</button>
         <button onclick="showPage('shop')">Shop</button>
         <button onclick="showPage('cart')">Cart</button>
+        <button onclick="showPage('about')">About</button>
         <button onclick="toggleDark()">☽</button>
     </div>
 </nav>
@@ -184,13 +187,11 @@ section {
             <h2>Raaipong Lite</h2>
             <p>50MP • 6.1 OLED • 128GB</p>
         </div>
-
         <div class="slide">
             <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9">
             <h2>Raaipong X</h2>
             <p>70MP • 6.1 OLED • 256GB</p>
         </div>
-
         <div class="slide">
             <img src="https://images.unsplash.com/photo-1605236453806-6ff36851218e">
             <h2>Raaipong X Pro</h2>
@@ -202,27 +203,24 @@ section {
 <!-- SHOP -->
 <section id="shop" class="hidden">
     <h2 class="reveal">Our Phones</h2>
-
     <div class="products">
         <div class="product reveal">
             <img src="https://images.unsplash.com/photo-1585060544812-6b45742d762f">
             <h3>Raaipong Lite</h3>
             <p>$599</p>
-            <button onclick="addToCart('Lite',599)">Add to Cart</button>
+            <button onclick="addToCart('Raaipong Lite',599)">Add to Cart</button>
         </div>
-
         <div class="product reveal">
             <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9">
             <h3>Raaipong X</h3>
             <p>$799</p>
-            <button onclick="addToCart('X',799)">Add to Cart</button>
+            <button onclick="addToCart('Raaipong X',799)">Add to Cart</button>
         </div>
-
         <div class="product reveal">
             <img src="https://images.unsplash.com/photo-1605236453806-6ff36851218e">
             <h3>Raaipong X Pro</h3>
             <p>$999</p>
-            <button onclick="addToCart('X Pro',999)">Add to Cart</button>
+            <button onclick="addToCart('Raaipong X Pro',999)">Add to Cart</button>
         </div>
     </div>
 </section>
@@ -232,37 +230,91 @@ section {
     <h2>Your Cart</h2>
     <div id="cart-items"></div>
     <h3 id="total"></h3>
-    <button class="checkout-btn" onclick="placeOrder()">Checkout</button>
+    <button class="checkout-btn" onclick="placeOrder()">Place Order</button>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="hidden">
+    <div class="about-box reveal">
+        <h2>About Raaipong</h2>
+        <p>
+            Raaipong is dedicated to building premium smartphones that blend
+            innovation, performance, and elegant design for the future.
+        </p>
+    </div>
 </section>
 
 <script>
 /* NAV */
-function showPage(p){
-    ["home","shop","cart"].forEach(id=>document.getElementById(id).classList.add("hidden"));
-    document.getElementById(p).classList.remove("hidden");
+function showPage(page){
+    ["home","shop","cart","about"].forEach(id =>
+        document.getElementById(id).classList.add("hidden"));
+    document.getElementById(page).classList.remove("hidden");
+    if(page==="cart") renderCart();
 }
 
-/* DARK */
-function toggleDark(){ document.body.classList.toggle("dark"); }
+/* DARK MODE */
+function toggleDark(){
+    document.body.classList.toggle("dark");
+}
 
-/* CART */
-let cart=[];
-function addToCart(n,p){ cart.push({n,p}); alert("Added"); }
-function placeOrder(){ alert("Order placed"); cart=[]; }
+/* CART SYSTEM */
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+function addToCart(name, price){
+    let item = cart.find(i => i.name === name);
+    if(item) item.qty++;
+    else cart.push({name,price,qty:1});
+    saveCart();
+    alert("Added to cart");
+}
+
+function renderCart(){
+    let container = document.getElementById("cart-items");
+    let total = 0;
+    container.innerHTML = "";
+
+    cart.forEach((item,i)=>{
+        total += item.price * item.qty;
+        container.innerHTML += `
+        <div class="cart-item">
+            <span>${item.name} × ${item.qty}</span>
+            <span>$${item.price * item.qty}</span>
+        </div>`;
+    });
+
+    document.getElementById("total").innerText = "Total: $" + total;
+}
+
+function saveCart(){
+    localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+function placeOrder(){
+    alert("Thank you for your purchase!");
+    cart = [];
+    saveCart();
+    renderCart();
+    showPage("home");
+}
 
 /* SLIDER AUTO + SWIPE */
-let slides=document.querySelectorAll(".slide");
-let index=0;
+let slides = document.querySelectorAll(".slide");
+let index = 0;
+
 function showSlide(i){
     slides.forEach(s=>s.classList.remove("active"));
     slides[i].classList.add("active");
 }
-setInterval(()=>{ index=(index+1)%slides.length; showSlide(index); },4000);
 
-/* SWIPE */
+setInterval(()=>{
+    index = (index+1) % slides.length;
+    showSlide(index);
+},4000);
+
 let startX=0;
-document.getElementById("slider").addEventListener("touchstart",e=>startX=e.touches[0].clientX);
-document.getElementById("slider").addEventListener("touchend",e=>{
+slider.addEventListener("touchstart",e=>startX=e.touches[0].clientX);
+slider.addEventListener("touchend",e=>{
     let endX=e.changedTouches[0].clientX;
     if(endX-startX>50) index=(index-1+slides.length)%slides.length;
     if(startX-endX>50) index=(index+1)%slides.length;
@@ -270,9 +322,10 @@ document.getElementById("slider").addEventListener("touchend",e=>{
 });
 
 /* SCROLL REVEAL */
-const observer=new IntersectionObserver(entries=>{
-    entries.forEach(e=>e.isIntersecting&&e.target.classList.add("active"));
-},{threshold:0.2});
+const observer = new IntersectionObserver(entries=>{
+    entries.forEach(e=>e.isIntersecting && e.target.classList.add("active"));
+},{threshold:.2});
+
 document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
 </script>
 

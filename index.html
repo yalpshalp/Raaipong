@@ -34,6 +34,56 @@ body {
     transition:.4s;
 }
 
+/* ===== SIDEBAR ===== */
+.sidebar {
+    position: fixed;
+    right: -260px;
+    top: 0;
+    width: 260px;
+    height: 100%;
+    background: var(--nav);
+    padding: 25px 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    transition: right .4s ease;
+    z-index: 999;
+}
+
+.sidebar button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 18px;
+    text-align: left;
+    padding: 10px 8px;
+    cursor: pointer;
+}
+
+.sidebar .close-btn {
+    font-size: 28px;
+    align-self: flex-end;
+    margin-bottom: 10px;
+}
+
+.open-sidebar-btn {
+    position: fixed;
+    right: 20px;
+    top: 18px;
+    background: var(--nav);
+    color: white;
+    border: none;
+    padding: 10px 14px;
+    font-size: 22px;
+    cursor: pointer;
+    z-index: 998;
+    border-radius: 6px;
+}
+
+.sidebar.open {
+    right: 0;
+}
+
 /* ================= NAV ================= */
 nav {
     background:var(--nav);
@@ -190,16 +240,16 @@ section { padding:80px 25px; }
 
 <body>
 
-<nav>
-    <strong>Raaipong</strong>
-    <div>
-        <button onclick="showPage('home')">Home</button>
-        <button onclick="showPage('shop')">Shop</button>
-        <button onclick="showPage('cart')">Cart</button>
-        <button onclick="showPage('about')">About</button>
-        <button onclick="toggleDark()">◐</button>
-    </div>
-</nav>
+<div id="sidebar" class="sidebar">
+    <button class="close-btn" onclick="toggleSidebar()">×</button>
+    <button onclick="showPage('home'); toggleSidebar()">Home</button>
+    <button onclick="showPage('shop'); toggleSidebar()">Shop</button>
+    <button onclick="showPage('cart'); toggleSidebar()">Cart</button>
+    <button onclick="showPage('about'); toggleSidebar()">About</button>
+    <button onclick="toggleDark()">☽ Dark Mode</button>
+</div>
+
+<button id="openSidebarBtn" class="open-sidebar-btn" onclick="toggleSidebar()">☰</button>
 
 <!-- HOME -->
 <section id="home" class="home">
@@ -409,7 +459,21 @@ function checkout() {
     renderCart();
     showPage("home");
 }
-    
+
+/* ===== SIDEBAR TOGGLE ===== */
+function toggleSidebar() {
+    const sidebar = document.getElementById("sidebar");
+    const openBtn = document.getElementById("openSidebarBtn");
+
+    if (sidebar.classList.contains("open")) {
+        sidebar.classList.remove("open");
+        openBtn.style.display = "block";
+    } else {
+        sidebar.classList.add("open");
+        openBtn.style.display = "none";
+    }
+}
+
 /* ================= SLIDER ================= */
 let slides=document.querySelectorAll(".slide");
 let index=0;
